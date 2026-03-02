@@ -97,11 +97,7 @@ Key assumption cells modeled with probability distributions:
 
 | File | Description |
 |------|-------------|
-| `dindu_shravanigoud_Twin Vee fall 2024.xlsx` | Completed financial model with Monte Carlo outputs |
-| `CapitalBudgetProject_Report.xlsx` | Summary report and analysis tables |
-| `CapitalBudgetProject_WriteUp.docx` | Written analysis and investment recommendation |
-| `MNC Capital Budgeting Assignment FIN 630.docx` | Original assignment brief |
-| `Twin Vee Shell-1.xlsx` | Blank template provided for the assignment |
+| `Twin Vee fall.xlsx` | Completed financial model with Monte Carlo outputs |
 
 ---
 
