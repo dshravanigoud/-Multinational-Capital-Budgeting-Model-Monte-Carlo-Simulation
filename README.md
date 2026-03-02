@@ -1,98 +1,113 @@
-🌎 Multinational Capital Budgeting Model
+# 🌎 Multinational Capital Budgeting Model
+### Monte Carlo Simulation | FX Risk Modeling | NPV Analysis | Real Options
 
-Monte Carlo Simulation | FX Risk | NPV Analysis
+---
 
-📌 Overview
+## 📌 Project Overview
 
-This project evaluates a U.S. company’s expansion into Mexico using a fully dynamic capital budgeting model.
+This project was developed as part of **FIN 630 – International Finance** at the **University of Tampa (Fall 2024)**. It evaluates a U.S. company's (Twin Vee PowerCats) potential expansion into Mexico using a fully dynamic, multi-scenario capital budgeting model.
 
-The model analyzes Net Present Value (NPV) from both:
-	•	Project (MXN) perspective
-	•	Parent (USD) perspective
+The model analyzes Net Present Value (NPV) from both the **project (MXN) perspective** and the **parent (USD) perspective**, integrating operational uncertainty, exchange rate risk, inflation, interest rates, and managerial decision rules through Monte Carlo simulation via **Oracle Crystal Ball®**.
 
-It integrates operational uncertainty, exchange rate risk, inflation, interest rates, and managerial decision rules using Monte Carlo simulation.
+> **Note:** This was an academic project built on real company data and course-provided assumptions. The financial model, scenario logic, sensitivity analysis, and written analysis are my own original work.
 
+---
 
-🎯 Objective
+## 🎯 Objective
 
-To determine whether the firm should accept or reject the foreign investment by:
-	•	Forecasting 10 years of cash flows (2025–2034)
-	•	Modeling exchange rate uncertainty
-	•	Simulating risk distributions
-	•	Comparing NPV outcomes under different FX forecasting frameworks
+To determine whether the firm should **accept or reject** the foreign investment by:
+- Forecasting **10 years of cash flows** (2025–2034) across 5 product lines
+- Modeling **exchange rate uncertainty** using three FX forecasting methods
+- Simulating **thousands of risk scenarios** via Monte Carlo
+- Comparing NPV outcomes under different frameworks and termination rules
 
+---
 
-🛠 Model Components
+## 🛠 Model Components
 
-1️⃣ Pro-Forma Financial Model
-	•	Revenue forecasts across 5 product lines
-	•	Inflation-adjusted pricing
-	•	Variable cost distributions
-	•	Operating expenses & salary inflation
-	•	Depreciation schedules (facility, molds, equipment)
-	•	After-tax operating cash flows
-	•	Terminal value & early termination logic
+### 1️⃣ Pro-Forma Financial Model
+- Revenue forecasts across 5 product lines with inflation-adjusted pricing
+- Variable cost distributions, operating expenses, and salary inflation
+- Depreciation schedules (facility, molds, equipment)
+- After-tax operating cash flows and terminal value logic
 
+### 2️⃣ Exchange Rate Modeling
+Three FX forecasting approaches were implemented and compared:
 
-2️⃣ Exchange Rate Modeling
+| Method | Description |
+|--------|-------------|
+| **Random Walk** | No predictable trend; volatility-driven simulation |
+| **Interest Rate Parity (IRP)** | Forward rates derived from interest rate differentials |
+| **Relative PPP** | FX rates driven by inflation differentials between US and Mexico |
 
-Implemented three FX forecasting approaches:
-	•	Random Walk Model
-	•	Interest Rate Parity (IRP)
-	•	Relative Purchasing Power Parity (PPP)
+### 3️⃣ Monte Carlo Simulation (Oracle Crystal Ball®)
 
-Each method dynamically forecasts MXN/USD rates and converts project cash flows into USD for parent-level valuation.
+Key assumption cells modeled with probability distributions:
+- Facility purchase price — *Triangular distribution*
+- Variable cost percentages — *Normal distributions*
+- Sales forecasts — *Uniform distributions*
+- Inflation & interest rates — *Normal distributions with correlation structure*
 
+**Correlation structure:**
+| Variable Pair | Correlation |
+|---------------|-------------|
+| U.S. inflation ↔ U.S. interest rates | 0.95 |
+| Mexico inflation ↔ Mexico interest rates | 0.85 |
+| U.S. inflation ↔ Mexico inflation | 0.25 |
 
-3️⃣ Monte Carlo Simulation
+### 4️⃣ Real Options & Termination Rules
+- Evaluation checkpoints at **2027** and **2030**
+- Conditional early sale based on cash flow thresholds
+- Terminal value multiple if held to **2034**
 
-To capture uncertainty across multiple variables:
-	•	Assigned probability distributions to:
-	•	Sales volumes
-	•	Variable costs
-	•	Interest rates
-	•	Inflation rates
-	•	Capital expenditures
-	•	Modeled correlations between inflation and interest rates
-	•	Simulated thousands of scenarios
-	•	Generated NPV distributions
-	•	Measured probability of positive NPV
-	•	Conducted sensitivity analysis
+---
 
+## 📊 Key Findings
+- The **22' Classic model** was the dominant NPV driver across all scenarios
+- **Variable costs** had the strongest negative sensitivity impact
+- FX risk increased volatility but improved median NPV under **RPPP**
+- Termination rules materially **reduced downside risk**
+- Project NPV was **positive under base case** across all three FX methods
 
-4️⃣ Real Options & Termination Rules
+---
 
-Embedded managerial flexibility:
-	•	Project evaluation checkpoints (2027 & 2030)
-	•	Conditional early sale based on cash flow thresholds
-	•	Terminal value multiple if held to 2034
+## 📸 Model Screenshots
 
-Analyzed how termination rules affect downside risk and project value.
+### Monte Carlo NPV Distributions — 10,000 Simulated Scenarios
+*Probability distributions of NPV across all four perspectives (Project, RPPP, Random Walk, IRP)*
+![Monte Carlo Distributions](images/montecarlo_npv.png)
 
+---
 
-📊 Key Skills Demonstrated
-	•	Multinational capital budgeting
-	•	Advanced NPV modeling (Parent vs Project perspective)
-	•	Foreign exchange risk modeling
-	•	Monte Carlo simulation
-	•	Scenario & sensitivity analysis
-	•	Real options valuation
-	•	Dynamic Excel modeling
-	•	Risk quantification
+### Scenario Analysis — Three-Case Comparison
 
+**Best Case** — Higher sales volumes, favorable FX conditions
+![Best Case](images/best_case.png)
 
-📈 What This Project Demonstrates
+**Base Case** — Expected market conditions
+![Base Case](images/base_case.png)
 
-This project moves beyond static NPV analysis by:
-	•	Integrating macroeconomic uncertainty into valuation
-	•	Quantifying currency risk impact
-	•	Modeling correlated financial variables
-	•	Evaluating cross-border investment decisions under uncertainty
-	•	Translating financial theory into executable modeling
+**Worst Case** — Lower sales volumes, declining growth, adverse FX
+![Worst Case](images/worst_case.png)
 
+> Each scenario dynamically updates all 10 years of cash flows, FX forecasts, and NPV outputs
+> across all three exchange rate methodologies (IRP, PPP, Random Walk).
 
-🧠 Tools Used
-	•	Microsoft Excel
-	•	Financial modeling techniques
-	•	Monte Carlo simulation logic
-	•	Probability distributions & correlation modeling
+## 📁 Repository Contents
+
+| File | Description |
+|------|-------------|
+| `dindu_shravanigoud_Twin Vee fall 2024.xlsx` | Completed financial model with Monte Carlo outputs |
+| `CapitalBudgetProject_Report.xlsx` | Summary report and analysis tables |
+| `CapitalBudgetProject_WriteUp.docx` | Written analysis and investment recommendation |
+| `MNC Capital Budgeting Assignment FIN 630.docx` | Original assignment brief |
+| `Twin Vee Shell-1.xlsx` | Blank template provided for the assignment |
+
+---
+
+## 🧠 Skills Demonstrated
+`Multinational Capital Budgeting` `NPV & IRR Analysis` `FX Risk Modeling` `Monte Carlo Simulation` `Oracle Crystal Ball®` `Scenario Analysis` `Real Options` `Dynamic Excel Modeling`
+
+---
+
+*Developed as part of FIN 630 – International Finance | University of Tampa | Fall 2024*
